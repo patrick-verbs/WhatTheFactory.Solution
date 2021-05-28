@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace WeekFourTemplate.Models
+namespace Factory.Models
 {
-  public class WeekFourTemplateContext : DbContext
+  public class FactoryContext : DbContext
   {
-    public virtual DbSet<TemplateCategory> TemplateCategories { get; set; }
-    public DbSet<TemplateItem> TemplateItems { get; set; }
-    public DbSet<TemplateCategoryItem> TemplateCategoryItem { get; set; }
+    public virtual DbSet<Engineer> Engineers { get; set; }
+    public DbSet<Machine> Machines { get; set; }
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
     
-    public WeekFourTemplateContext(DbContextOptions options) : base(options) { }
+    public FactoryContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
