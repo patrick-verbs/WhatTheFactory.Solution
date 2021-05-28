@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Engineer;
+
+<h1>Register a New Engineer</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @required = "required" })
+  <br>
+
+  <input type="submit" value="Register!" />
+}
+
+<p>@Html.ActionLink("Show All Engineers", "Index")</p>

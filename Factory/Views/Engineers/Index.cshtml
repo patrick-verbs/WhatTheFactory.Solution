@@ -7,4 +7,11 @@
 
 <h1>Silly Engineers</h1>
 
+<ul>
+  @foreach (Engineer engineer in Model)
+  {
+    <li>@engineer.Name</li>
+  }
+</ul>
+
 <p>@Html.ActionLink("Add New Engineer", "Create")</p>
