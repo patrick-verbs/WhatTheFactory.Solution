@@ -1,10 +1,10 @@
-# "Project Name"
+# "What the Factory"
 
-#### Basic many-to-many database relation in .NET Core MVC | Patrick Lee
+#### _Basic many-to-many database relation in .NET Core MVC_ | Patrick Lee
 
 ## Description
 
-Project description.
+This project was made to demonstrate usage of many-to-many relationships while working with MySQL databases in C# with the .NET Core MVC framework. The solution allows a business owner, "Dr. Sillystringz," to add, view, edit, and delete both employees (Engineers) and the equipment they are licensed to repair (Machines), in a many-Engineers-to-many-Machines relationship.
 
 ## Setup and Use
 
@@ -13,16 +13,16 @@ Project description.
 - [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 - A text editor like [VS Code](https://code.visualstudio.com/)
 - A command line interface like Terminal or GitBash to set up and run the project
-- MySQL 8.0.19, following [these instructions](https://web.archive.org/web/20210521163651/https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
+- MySQL 8.0.19, following [these installation instructions](https://web.archive.org/web/20210521163651/https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
 - A web browser to view and interact with the project
 
 ### Installation
 
-1. Clone the repository: `$ git clone {clone link}`
-2. Navigate to the `{Template.Solution}` directory on your computer
+1. Clone the repository: `$ git clone https://github.com/patrick-verbs/WhatTheFactory.Solution`
+2. Navigate to the `WhatTheFactory.Solution` directory on your computer
 3. Open with your preferred text editor to view the code base
 4. To setup the SQL database using MySQL:
-   - Create an `appsettings.json` file in the `{WeekFourTemplate}` directory
+   - Create an `appsettings.json` file in the `Factory` directory
    - Copy the text box below and paste into the `appsettings.json` file, replacing `<password>` with your MySQL password:
    ```
      {
@@ -33,9 +33,9 @@ Project description.
    ```
    - Open your terminal and run the command: `mysql -uroot -p<mysql_password>` (replace `<mysql_password>` with your MySQL password) to launch MySQL server
 5. To serve the local web app:
-   - Navigate to `{Template.Solution/WeekFourTemplate}` in your command line
+   - Navigate to `WhatTheFactory.Solution/Factory` in your command line
    - Run the following commands:
-     - `dotnet restore` to restore the dependencies that are listed in `{Template.csproj}`
+     - `dotnet restore` to restore the dependencies that are listed in `Factory.csproj`
      - `dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0`
      - `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2`
      - `dotnet add package Microsoft.EntityFrameworkCore.Proxies -v 5.0.0`
