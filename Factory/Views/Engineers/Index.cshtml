@@ -16,7 +16,12 @@ else
   <ul>
     @foreach (Engineer engineer in Model)
     {
-      <li>@engineer.Name</li>
+      <li>@engineer.Name ||
+        <span class="commands">
+          [@Html.ActionLink("edit", "Edit", new { id = engineer.EngineerId })]
+          [@Html.ActionLink("delete", "Delete", new { id = engineer.EngineerId })]
+        </span>
+      </li>
     }
   </ul>
 }
