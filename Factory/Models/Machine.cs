@@ -4,13 +4,13 @@ namespace Factory.Models
 {
   public class Machine
   {
+    public int MachineId { get; set; }
+    public int Name { get; set; }
+    public virtual ICollection<EngineerMachine> JoinEntities { get; }
+
     public Machine()
     {
       this.JoinEntities = new HashSet<EngineerMachine>();
     }
-
-    public int MachineId { get; set; }
-    public int SomeProperty { get; set; }
-    public virtual ICollection<EngineerMachine> JoinEntities { get; }
   }
 }
