@@ -7,11 +7,18 @@
 
 <h1>Silly Engineers</h1>
 
-<ul>
-  @foreach (Engineer engineer in Model)
-  {
-    <li>@engineer.Name</li>
-  }
-</ul>
+@if (@Model.Count == 0)
+{
+  <h3>No engineers have been added to the roster yet. Please choose <em>Add New Engineer</em> to get started.</h3>
+}
+else
+{
+  <ul>
+    @foreach (Engineer engineer in Model)
+    {
+      <li>@engineer.Name</li>
+    }
+  </ul>
+}
 
 <p>@Html.ActionLink("Add New Engineer", "Create")</p>
