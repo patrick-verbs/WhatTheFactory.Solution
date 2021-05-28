@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @required = "required" })
+  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @Value="Bender Bending Rodriguez", @required = "required" })
   <br>
 
   <input type="submit" value="Register!" />

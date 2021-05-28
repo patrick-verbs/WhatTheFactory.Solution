@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Engineer;
+
+<h1>
+  Engineer Data:
+  <br>
+  @Model.Name
+</h1>
+
+Stuff!
+
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Add Machine Licenses", "AddMachine", new { id = Model.EngineerId })
+  <br>
+  @Html.ActionLink("Edit Engineer Data", "Edit", new { id = Model.EngineerId })
+  | @Html.ActionLink("Back to Roster", "Index")
+</span>

@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Engineer;
+
+<h1>
+  Edit Data:
+  <br>
+  @Model.Name
+</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @value = "Model.Name", @required = "required" })
+  <br>
+
+  <input type="submit" value="Update Data" />
+}
+
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Add Machine Licenses", "AddMachine", new { id = Model.EngineerId })
+  | @Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })
+  <br>
+  @Html.ActionLink("Back to Details", "Details", new { id = Model.EngineerId })
+  | @Html.ActionLink("Back to Roster", "Index")
+</span>
