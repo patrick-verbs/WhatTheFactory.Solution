@@ -11,13 +11,28 @@
   @Model.Name
 </h1>
 
-Stuff!
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This Engineer has no licenses on record.</p>
+}
+else
+{
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })
+        | @using (Html.BeginForm("RemoveLicense", "Engineers"))
+      </li>
+    }
+  </ul>
+}
 
 <br>
 <br>
 
 <span class="details-nav">
-  @Html.ActionLink("Add Machine Licenses", "AddMachine", new { id = Model.EngineerId })
+  @Html.ActionLink("Add Machine Licenses", "AddLicense", new { id = Model.EngineerId })
   <br>
   @Html.ActionLink("Edit Engineer Data", "Edit", new { id = Model.EngineerId })
   | @Html.ActionLink("Back to Roster", "Index")

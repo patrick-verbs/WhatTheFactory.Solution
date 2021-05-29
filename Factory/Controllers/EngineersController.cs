@@ -70,5 +70,40 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddLicense(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult AddLicense(Engineer engineer, int MachineId)
+    {
+      EngineerMachine joinTableEntry = null;
+      try
+      {
+        joinTableEntry = _db.EngineerMachine.Where(
+          entry => entry.EngineerId == engineer.EngineerId
+          && entry.MachineId == MachineId
+        ).Single();
+      }
+      catch
+      {
+        // Console.WriteLine("Doesn't exist in the 'EngineerMachine' table");
+      }
+
+      if (MachineId != 0 && joinTableEntry == null)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine()
+        {
+          EngineerId = engineer.EngineerId,
+          MachineId = MachineId
+        });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = engineer.EngineerId});
+    }
+
   }
 }

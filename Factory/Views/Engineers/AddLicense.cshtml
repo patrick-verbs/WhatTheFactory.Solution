@@ -6,18 +6,20 @@
 @model Factory.Models.Engineer;
 
 <h1>
-  Edit Data:
-  <br>
-  @Model.Name
+  Add a Machinework License
 </h1>
+
+<h3>@Model.Name is licensed to operate on: </h3></p>
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @value = "Model.Name", @required = "required" })
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Select Machine: ")
+  @Html.DropDownList("MachineId")
   <br>
 
-  <input type="submit" value="Update Data" />
+  <input type="submit" value="Add License" />
 }
 
 <br>
