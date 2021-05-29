@@ -107,9 +107,12 @@ namespace Factory.Controllers
 
     public ActionResult RemoveLicense(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
-      return View(thisEngineer);
+      EngineerMachine joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == joinEntry.EngineerId);
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == joinEntry.MachineId);
+      ViewBag.Engineer = thisEngineer;
+      ViewBag.Machine = thisMachine;
+      return View(joinEntry);
     }
 
     [HttpPost, ActionName("RemoveLicense")]
