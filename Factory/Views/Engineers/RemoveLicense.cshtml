@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+
+<h1>Are you sure you want to remove the Machine license from @Model.Name?</h1>
+
+@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+@*
+@using (Html.BeginForm("RemoveLicense", "Engineers"))
+{
+  @Html.Hidden("joinId", @Model.JoinEntities.id)
+  <input type="submit" value="Remove License" />
+}
+*@
+
+@Html.ActionLink("Back to list", "Index")

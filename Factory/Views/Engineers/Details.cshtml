@@ -22,7 +22,9 @@ else
     {
       <li>
         @Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })
-        | @using (Html.BeginForm("RemoveLicense", "Engineers"))
+        | <span class="commands">
+          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.Machine.MachineId })]
+        </span>
       </li>
     }
   </ul>

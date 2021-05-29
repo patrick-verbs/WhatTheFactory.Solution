@@ -105,5 +105,21 @@ namespace Factory.Controllers
       return RedirectToAction("Details", new { id = engineer.EngineerId});
     }
 
+    public ActionResult RemoveLicense(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      return View(thisEngineer);
+    }
+
+    [HttpPost, ActionName("RemoveLicense")]
+    public ActionResult RemoveLicenseConfirmed(int joinId)
+    {
+      EngineerMachine joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = joinEntry.EngineerId });
+    }
+
   }
 }
