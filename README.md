@@ -1,10 +1,10 @@
-# "What the Factory"
+# What the Factory 🏭
 
 #### _Basic many-to-many database relation in .NET Core MVC_ | Patrick Lee
 
 ## Description
 
-This project was made to demonstrate usage of many-to-many relationships while working with MySQL databases in C# with the .NET Core MVC framework. The solution allows a business owner, "Dr. Sillystringz," to add, view, edit, and delete both employees (Engineers) and the equipment they are licensed to repair (Machines), in a many-Engineers-to-many-Machines relationship.
+This project was made to demonstrate usage of many-to-many relationships while working with MySQL databases in C# with the .NET Core MVC framework. The solution allows a business owner, one "Dr. Sillystringz," to add, view, edit, and delete both employees (Engineers) and the equipment they are licensed to repair (Machines), in a many-Engineers-to-many-Machines relationship.
 
 ## Setup and Use
 
@@ -13,7 +13,7 @@ This project was made to demonstrate usage of many-to-many relationships while w
 - [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 - A text editor like [VS Code](https://code.visualstudio.com/)
 - A command line interface like Terminal or GitBash to set up and run the project
-- MySQL 8.0.19, following [these installation instructions](https://web.archive.org/web/20210521163651/https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
+- MySQL 8.0.19, following [these pinned installation instructions](https://web.archive.org/web/20210521163651/https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
 - A web browser to view and interact with the project
 
 ### Installation
@@ -41,9 +41,9 @@ This project was made to demonstrate usage of many-to-many relationships while w
      - `dotnet add package Microsoft.EntityFrameworkCore.Proxies -v 5.0.0`
      - `dotnet build` to build the project and its dependencies into a set of binaries
      - `dotnet tool install --global dotnet-ef` to install EF Core tools
-     - `dotnet ef migrations add Initial` and `dotnet ef database update`
+     - `dotnet ef database update` to build the MySQL database
    - Finally, run the command `dotnet run` to run the project!
-   - Note: `dotnet run` also restores and builds the project, so you can use this single command to start the console app
+   - Note: `dotnet run` also restores and builds the project, so you can use this single command to start the app
 6. Visit the application via web browser at: `localhost:5000/`
 
 ## Known Bugs
@@ -60,6 +60,7 @@ _No known bugs_ :bug:
 - Entity Framework Core
 - HTML5 with Razor pages
 - CSS3 with Bootstrap 4.5.0 framework
+- A dash of jQuery 3.6.0
 - VS Code
 
 ### License
