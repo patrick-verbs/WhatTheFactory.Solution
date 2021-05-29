@@ -9,7 +9,9 @@
   Add a Machinework License
 </h1>
 
-<h3>@Model.Name is licensed to operate on: </h3></p>
+<h3>
+  @Model.Name is licensed to operate on:
+</h3>
 
 @using (Html.BeginForm())
 {
@@ -26,9 +28,6 @@
 <br>
 
 <span class="details-nav">
-  @Html.ActionLink("Add a Machine License", "AddLicense", new { id = Model.EngineerId })
-  | @Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })
-  <br>
-  @Html.ActionLink("Back to Details", "Details", new { id = Model.EngineerId })
-  | @Html.ActionLink("Back to Roster", "Index")
+  @Html.ActionLink("Back to Engineer Details", "Details", new { id = Model.EngineerId })
+  | @Html.ActionLink("Engineer Roster", "Index")
 </span>

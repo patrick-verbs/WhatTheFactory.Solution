@@ -22,8 +22,8 @@ else
     {
       <li>
         @Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })
-        | <span class="commands">
-          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.Machine.MachineId })]
+        <span class="commands">
+          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.EngineerMachineId })]
         </span>
       </li>
     }
@@ -35,6 +35,7 @@ else
 
 <span class="details-nav">
   @Html.ActionLink("Add Machine Licenses", "AddLicense", new { id = Model.EngineerId })
+  | @Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })
   <br>
   @Html.ActionLink("Edit Engineer Data", "Edit", new { id = Model.EngineerId })
   | @Html.ActionLink("Back to Roster", "Index")

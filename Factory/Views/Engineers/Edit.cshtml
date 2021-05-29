@@ -16,8 +16,32 @@
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @value = "Model.Name", @required = "required" })
   <br>
+  <br>
 
   <input type="submit" value="Update Data" />
+}
+
+<h3>
+  Machine licenses:
+</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This Engineer has no licenses on record.</p>
+}
+else
+{
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })
+        <span class="commands">
+          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.EngineerMachineId })]
+        </span>
+      </li>
+    }
+  </ul>
 }
 
 <br>

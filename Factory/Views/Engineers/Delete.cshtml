@@ -12,4 +12,10 @@
   <input type="submit" value="Delete" />
 }
 
-@Html.ActionLink("Back to list", "Index")
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Engineer Details", "Details", new { id = Model.EngineerId })
+  | @Html.ActionLink("Back to Engineer Roster", "Index")
+</span>

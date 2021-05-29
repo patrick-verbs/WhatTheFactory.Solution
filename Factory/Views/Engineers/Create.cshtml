@@ -10,10 +10,13 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @Value="Bender Bending Rodriguez", @required = "required" })
+  @Html.TextBoxFor(model => model.Name, new { @class = "engineer-name", @required = "required" })
+  <br>
   <br>
 
   <input type="submit" value="Register!" />
 }
+
+<br>
 
 <p>@Html.ActionLink("Show All Engineers", "Index")</p>
