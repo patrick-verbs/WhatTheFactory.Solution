@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Machine;
+
+<h1>
+  Machine Data:
+  <br>
+  @Model.Name
+</h1>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This Machine has no licensed Engineers on record.</p>
+}
+else
+{
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })
+        <span class="commands">
+          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.EngineerMachineId })]
+        </span>
+      </li>
+    }
+  </ul>
+}
+
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Add Machine Licenses", "AddLicense", new { id = Model.MachineId })
+  | @Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
+  <br>
+  @Html.ActionLink("Edit Machine Data", "Edit", new { id = Model.MachineId })
+  | @Html.ActionLink("Back to Roster", "Index")
+</span>

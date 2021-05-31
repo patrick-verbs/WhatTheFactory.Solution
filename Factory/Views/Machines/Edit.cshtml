@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine;
+
+<h1>
+  Edit Data:
+  <br>
+  @Model.Name
+</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "machine-name", @value = "Model.Name", @required = "required" })
+  <br>
+  <br>
+
+  <input type="submit" value="Update Data" />
+}
+
+<h3>
+  Licensed Engineers:
+</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This Machine has no licensed Engineers on record.</p>
+}
+else
+{
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })
+        <span class="commands">
+          [@Html.ActionLink("Remove License", "RemoveLicense", new { id = join.EngineerMachineId })]
+        </span>
+      </li>
+    }
+  </ul>
+}
+
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Add a Licensed Engineer", "AddLicense", new { id = Model.MachineId })
+  | @Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
+  <br>
+  @Html.ActionLink("Back to Details", "Details", new { id = Model.MachineId })
+  | @Html.ActionLink("Back to Inventory", "Index")
+</span>

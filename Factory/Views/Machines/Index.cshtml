@@ -16,8 +16,10 @@ else
   <ul>
     @foreach (Machine machine in Model)
     {
-      <li>@machine.Name 
+      <li>@Html.ActionLink(machine.Name, "Details", new { id = machine.MachineId })
+        <br>
         <span class="commands">
+          [@Html.ActionLink("details", "Details", new { id = machine.MachineId })]
           [@Html.ActionLink("edit", "Edit", new { id = machine.MachineId })]
           [@Html.ActionLink("delete", "Delete", new { id = machine.MachineId })]
         </span>

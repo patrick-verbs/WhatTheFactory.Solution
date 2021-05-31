@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Machine;
+
+<h1>
+  Add a Machinework License
+</h1>
+
+<h3>
+  @Model.Name has the new licensed operator:
+</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.Label("Select Engineer: ")
+  @Html.DropDownList("EngineerId")
+  <br>
+
+  <input type="submit" value="Add License" />
+}
+
+<br>
+<br>
+
+<span class="details-nav">
+  @Html.ActionLink("Back to Machine Details", "Details", new { id = Model.MachineId })
+  | @Html.ActionLink("Machine Inventory", "Index")
+</span>
