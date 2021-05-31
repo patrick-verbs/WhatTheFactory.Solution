@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.EngineerMachine;
+
+<h1>Are you sure you want to remove the @ViewBag.Machine.Name license from @ViewBag.Engineer.Name?</h1>
+
+@ViewBag.Engineer.Name: @ViewBag.Machine.Name Certification
+@using (Html.BeginForm("RemoveLicense", "Machines"))
+{
+  @Html.Hidden("joinId", Model.EngineerMachineId)
+  <input type="submit" value="Remove This License" />
+}
+
+@Html.ActionLink("Back to list", "Index")
